@@ -49,23 +49,58 @@ $$\text{Tổng điểm} = (\text{Trends} \times 30\%) + (\text{Intent} \times 25
 ## III. AUDIT LANDING PAGE EDOCTOR VÀ BENCHMARK ĐỐI THỦ (`03_LP_AUDIT`)
 
 ### 1. Thông tin khảo sát
-- **Trang eDoctor khảo sát:** `https://edoctor.io/dich-vu/xet-nghiem-tai-nha` (Trang giới thiệu Dịch vụ Lấy mẫu xét nghiệm tại nhà của eDoctor).
+- **Trang eDoctor khảo sát:** `https://edoctor.io/xet-nghiem-tai-nha.html` (Trang giới thiệu Dịch vụ Lấy mẫu xét nghiệm tại nhà của eDoctor).
 - **Đối thủ Benchmark 1 (Thống trị thị phần):** Medlatec (`https://medlatec.vn/dich-vu/xet-nghiem-lay-mau-tai-nha`)
 - **Đối thủ Benchmark 2 (Niềm tin & Quy trình):** Nhà thuốc Long Châu (`https://nhathuoclongchau.com.vn/bai-viet/dich-vu-lay-mau-mau-xet-nghiem-tai-nha-ha-noi-quy-trinh-va-nhung-luu-y-khi-thuc-hien.html`)
 - **Đối thủ tham chiếu (Minh bạch giá):** Vinmec (`https://www.vinmec.com/vie/bai-viet/kham-suc-khoe-dinh-ky-gom-nhung-gi-vi`)
 
-### 2. Bảng đối chiếu Audit 8 thành phần cốt lõi
+### 2. Bảng đối chiếu Audit 8 thành phần cốt lõi kèm Bằng chứng thực tế
 
-| STT | Thành phần UX / Marketing | Hiện trạng eDoctor (Current) | Mô hình đối thủ (Medlatec / Long Châu) | Đánh giá Khoảng cách (Gap) |
+| STT | Thành phần UX / Marketing | Hiện trạng eDoctor (Current) & Bằng chứng | Mô hình đối thủ (Medlatec / Long Châu / Vinmec) & Bằng chứng | Đánh giá Khoảng cách (Gap) |
 | :---: | :--- | :--- | :--- | :--- |
-| **1** | **Title / H1 & Hero Headline** | Tiêu đề mờ nhạt, chung chung dạng *"Dịch vụ xét nghiệm tại nhà eDoctor"*. Chưa nêu bật giá trị cốt lõi về thời gian hay chi phí. | Medlatec nêu rõ định vị số 1, Long Châu nhấn mạnh mạng lưới rộng khắp và quy trình an toàn chuẩn y tế. | **Gap nghiêm trọng:** Thiếu Value Proposition cụ thể (Bao lâu có mặt? Bao lâu có kết quả? Cam kết gì?). |
-| **2** | **Hero Value Proposition** | Ảnh đồ họa tĩnh; thiếu các thông số tạo niềm tin nhanh (Social Proof / Quick Stats) ngay tại màn hình đầu tiên. | Medlatec show ngay *"Phí đi lại chỉ 10.000đ"*, hotline 1900 565656, 30 năm kinh nghiệm. | Không giữ chân được người dùng trong 5 giây đầu; bounce rate cao. |
-| **3** | **Bảng giá & Danh mục gói (Pricing Matrix)** | Các gói xét nghiệm hiển thị dạng card đơn điệu, **không bóc tách rõ danh mục chỉ số** (khách không biết gói 500k gồm những chỉ số gì). Không phân nhóm nhu cầu rõ ràng. | Medlatec & Vinmec bóc tách 100% từng xét nghiệm thành phần (Glucose, Ure, Creatinine, AST, ALT...), niêm yết giá công khai từng gói. | **GAP 1 (CỰC LỚN):** Thiếu minh bạch chi phí và danh mục chi tiết, khiến khách hàng nghi ngờ phát sinh chi phí. |
-| **4** | **Bằng chứng an toàn & Trust Signals** | Chưa làm nổi bật tiêu chuẩn phòng Lab đạt chứng nhận (ISO 15189), thiếu hình ảnh thực tế về quy trình bảo quản dây chuyền lạnh. | Long Châu & Medlatec mô tả tỉ mỉ quy trình bảo quản lạnh, dụng cụ vô trùng 1 lần, chứng chỉ điều dưỡng viên. | **GAP 2 (TÂM LÝ):** Khách hàng lo lắng về độ chính xác của kết quả xét nghiệm khi lấy tại nhà và nguy cơ lây nhiễm chéo. |
-| **5** | **Call To Action (CTA) & Quy trình đặt lịch** | Nút CTA dẫn đến form dài dòng hoặc ép người dùng phải quét mã tải ứng dụng mới đặt được gói. | Medlatec cho phép đặt hẹn 3 bước trực tiếp trên web cực nhanh: Chọn gói → Điền SĐT/Địa chỉ → Chọn giờ lấy mẫu. | **GAP 3 (FRICTION):** Rào cản ép tải app làm đứt gãy hành trình chuyển đổi của khách hàng truy cập từ Google Search Web. |
-| **6** | **Quy trình thực hiện (Process Steps)** | Trình bày chung chung, thiếu timeline rõ ràng (mất bao lâu từ khi đặt đến khi điều dưỡng bấm chuông). | Quy trình 4-5 bước minh bạch: Đặt hẹn → Điều dưỡng đến sau 30-60p → Lấy mẫu nhẹ nhàng → Trả kết quả online sau 2-4h. | Khách hàng không chủ động sắp xếp được thời gian công việc/nhịn ăn sáng. |
-| **7** | **Hậu mãi: Đọc kết quả & Tư vấn Bác sĩ** | Chỉ ghi "nhận kết quả qua app", chưa biến điểm mạnh Telemedicine thành vũ khí bán hàng. | YouMed/Medpro/Medlatec cam kết Bác sĩ chuyên khoa gọi điện tư vấn chi tiết kết quả xét nghiệm và hướng dẫn điều trị. | eDoctor bỏ phí thế mạnh lớn nhất của mình là mạng lưới bác sĩ tư vấn online 1-1. |
-| **8** | **FAQ (Giải tỏa rào cản tâm lý)** | Phần FAQ nghèo nàn, chưa trả lời đúng các câu hỏi nóng từ SERP PAA (*"Có cần nhịn ăn sáng không?", "Bao lâu có kết quả?", "Bảo hiểm có thanh toán không?"*). | Đối thủ có bộ FAQ chuẩn SEO bao phủ trọn vẹn PAA của Google. | Bỏ lỡ cơ hội chiếm vị trí Featured Snippets / PAA trên Google Search. |
+| **1** | **Title / H1 & Hero Headline** | - Tiêu đề mờ nhạt: *"LẤY MẪU XÉT NGHIỆM TẠI NHÀ"*, nút *"Đăng ký ngay"*, hình minh họa 2D chung chung.<br>- Chưa có Value Proposition về tốc độ hay cam kết y tế.<br>📸 [Ảnh eDoctor: 01_hero_headline.png](file:///d:/Marketing_Tuan3/audit_evidence/edoctor/01_hero_headline.png) | - **Medlatec:** Khẳng định vị thế *"Đơn vị y tế đầu tiên tại Việt Nam đạt tiêu chuẩn chất lượng xét nghiệm Mỹ (CAP) & ISO 15189"*, slogan *"Gọi là có ngay - Sống khỏe trong tầm tay"*, Hotline 1900 565656.<br>- **Long Châu:** Tiêu đề chuẩn SEO trực diện kèm Hotline 1800 6928.<br>📸 [Ảnh Medlatec: 01_hero_headline.png](file:///d:/Marketing_Tuan3/audit_evidence/medlatec/01_hero_headline.png)<br>📸 [Ảnh Long Châu: 01_hero_headline.png](file:///d:/Marketing_Tuan3/audit_evidence/longchau/01_hero_headline.png) | **Gap nghiêm trọng:** eDoctor thiếu tuyên ngôn giá trị định lượng (Bao lâu có mặt? Bao lâu có kết quả? Tiêu chuẩn gì?). |
+| **2** | **Hero Value Proposition & Trust Badges** | - 4 icon lợi ích cơ bản: Nhanh chóng, Kết quả chính xác, Nhận kết quả Online, Nhanh chóng (*lỗi lặp từ*).<br>- Ở mục "Kết quả chính xác" lại ghi xét nghiệm thực hiện bởi Medlatec & Medic Hòa Hảo (*vô tình giới thiệu đối thủ*).<br>📸 [Ảnh eDoctor: 01_hero_headline.png](file:///d:/Marketing_Tuan3/audit_evidence/edoctor/01_hero_headline.png) | - **Medlatec:** Nêu bật ngay *"Phí đi lại chỉ 10.000 VNĐ"*, *"Hẹn lấy mẫu chỉ từ 30 phút"*, 4 huy hiệu an toàn: An toàn - Chính xác - Tiện lợi - Bảo mật.<br>📸 [Ảnh Medlatec: 01_hero_headline.png](file:///d:/Marketing_Tuan3/audit_evidence/medlatec/01_hero_headline.png) | **Mất niềm tin ban đầu:** Không giữ chân được người dùng trong 5 giây đầu; bounce rate cao. |
+| **3** | **Bảng giá & Danh mục gói (Pricing Matrix)** | - Các gói xét nghiệm hiển thị dạng slider trượt ngang (850k, 870k, 3.090k...) chỉ có nút *"Xem chi tiết"*.<br>- **Không bóc tách danh mục chỉ số y khoa** ngay tại trang (khách không rõ gói gồm xét nghiệm gì).<br>📸 [Ảnh eDoctor: 03_content_section2.png](file:///d:/Marketing_Tuan3/audit_evidence/edoctor/03_content_section2.png)<br>📸 [Ảnh eDoctor: 04_content_section3.png](file:///d:/Marketing_Tuan3/audit_evidence/edoctor/04_content_section3.png) | - **Medlatec:** Phân nhóm gói rõ ràng (Sức khỏe tổng quát, Bệnh mãn tính, Tầm soát ung thư, Thai kỳ...) và liệt kê chi tiết từng chỉ số (Glucose, Ure, Creatinin, AST, ALT, Acid Uric, HbA1c, AFP...).<br>- **Vinmec:** Bóc tách 100% từng hạng mục khám và xét nghiệm chuyên sâu.<br>📸 [Ảnh Medlatec: 04_content_section3.png](file:///d:/Marketing_Tuan3/audit_evidence/medlatec/04_content_section3.png)<br>📸 [Ảnh Vinmec: 03_danh_muc_xet_nghiem.png](file:///d:/Marketing_Tuan3/audit_evidence/vinmec/03_danh_muc_xet_nghiem.png) | **GAP 1 (CỰC LỚN):** Thiếu minh bạch chi phí và danh mục chỉ số, khiến khách hàng nghi ngại phát sinh chi phí hoặc gói không đủ nhu cầu. |
+| **4** | **Bằng chứng an toàn & Trust Signals** | - Thiếu chứng chỉ Lab (ISO 15189), thiếu hình ảnh thực tế về quy trình vô trùng.<br>- Chỉ có con số tĩnh (200.000+ người dùng, 90% hài lòng) và 1 trích dẫn testimonial.<br>📸 [Ảnh eDoctor: 04_content_section3.png](file:///d:/Marketing_Tuan3/audit_evidence/edoctor/04_content_section3.png) | - **Medlatec:** Song hành 2 chứng chỉ quốc tế CAP và ISO 15189:2012; có video thực tế phòng Lab và điều dưỡng.<br>- **Long Châu:** Ảnh thực tế điều dưỡng mang găng tay y tế, sát khuẩn, lấy máu bằng kim bướm và ống nghiệm chân không vô trùng 1 lần.<br>📸 [Ảnh Medlatec: 01_hero_headline.png](file:///d:/Marketing_Tuan3/audit_evidence/medlatec/01_hero_headline.png)<br>📸 [Ảnh Long Châu: 02_quy_trinh_an_toan.png](file:///d:/Marketing_Tuan3/audit_evidence/longchau/02_quy_trinh_an_toan.png) | **GAP 2 (TÂM LÝ):** Khách hàng lo lắng về độ chính xác và nguy cơ lây nhiễm chéo khi lấy máu tại nhà. |
+| **5** | **Call To Action (CTA) & Quy trình đặt lịch** | - Form điền thông tin truyền thống ở chân trang (*Họ tên, SĐT, Email, Tỉnh/Thành*) thiếu chọn gói hay chọn khung giờ trực tiếp.<br>📸 [Ảnh eDoctor: 05_content_section4.png](file:///d:/Marketing_Tuan3/audit_evidence/edoctor/05_content_section4.png) | - **Medlatec:** Tích hợp form đặt hẹn nhanh trực tiếp ngay trên trang: Chọn loại xét nghiệm, SĐT, giới tính, ngày sinh và địa chỉ lấy mẫu; có Hotline gọi tức thì.<br>📸 [Ảnh Medlatec: 06_content_section5.png](file:///d:/Marketing_Tuan3/audit_evidence/medlatec/06_content_section5.png) | **GAP 3 (FRICTION):** Form thiếu thông tin gói dịch vụ làm tăng thời gian tư vấn lại qua điện thoại, giảm tỷ lệ chốt đơn tự động. |
+| **6** | **Quy trình thực hiện (Process Steps)** | - Trình bày rời rạc, không có timeline / flowchart trực quan các bước từ lúc đặt đến khi nhận kết quả.<br>📸 [Ảnh eDoctor: 00_fullpage.png](file:///d:/Marketing_Tuan3/audit_evidence/edoctor/00_fullpage.png) | - **Medlatec:** Mô hình 4 bước rõ ràng: *1. Đăng ký lịch hẹn → 2. Lấy mẫu tận nơi → 3. Phân tích tại Lab → 4. Tư vấn kết quả*.<br>- **Long Châu:** Quy trình 5 bước chuẩn hóa từ chuẩn bị, lấy mẫu, dây chuyền lạnh đến trả kết quả.<br>📸 [Ảnh Medlatec: 05_content_section4.png](file:///d:/Marketing_Tuan3/audit_evidence/medlatec/05_content_section4.png)<br>📸 [Ảnh Long Châu: 03_luu_y_xet_nghiem.png](file:///d:/Marketing_Tuan3/audit_evidence/longchau/03_luu_y_xet_nghiem.png) | Người dùng không chủ động nắm bắt được lịch trình điều dưỡng đến và thời gian nhịn ăn sáng. |
+| **7** | **Hậu mãi: Đọc kết quả & Tư vấn Bác sĩ** | - Chỉ ghi dòng chữ: *"Trả kết quả trực tuyến trong 5 tiếng..."*, chưa truyền thông thế mạnh Bác sĩ gọi điện tư vấn 1-1.<br>📸 [Ảnh eDoctor: 01_hero_headline.png](file:///d:/Marketing_Tuan3/audit_evidence/edoctor/01_hero_headline.png) | - **Medlatec:** Cam kết tại Bước 4: *"Khi có kết quả, khách hàng sẽ được các GS, TS giàu kinh nghiệm tư vấn về kết quả và đưa ra chế độ dinh dưỡng hợp lý"*.<br>📸 [Ảnh Medlatec: 06_content_section5.png](file:///d:/Marketing_Tuan3/audit_evidence/medlatec/06_content_section5.png) | Bỏ phí vũ khí bán hàng mạnh nhất của eDoctor là nền tảng Telemedicine với mạng lưới bác sĩ tư vấn chuyên sâu. |
+| **8** | **FAQ (Giải tỏa rào cản tâm lý)** | - **Landing Page eDoctor hoàn toàn KHÔNG CÓ khối FAQ** giải đáp thắc mắc người dùng.<br>📸 [Ảnh eDoctor: 06_content_section5.png](file:///d:/Marketing_Tuan3/audit_evidence/edoctor/06_content_section5.png) | - **Long Châu:** Giải đáp chi tiết các câu hỏi: *Xét nghiệm tại nhà là gì? Có chính xác không? Quy trình an toàn thế nào? Cần nhịn ăn gì?*<br>📸 [Ảnh Long Châu: 02_quy_trinh_an_toan.png](file:///d:/Marketing_Tuan3/audit_evidence/longchau/02_quy_trinh_an_toan.png)<br>📸 [Ảnh Long Châu: 03_luu_y_xet_nghiem.png](file:///d:/Marketing_Tuan3/audit_evidence/longchau/03_luu_y_xet_nghiem.png) | Đánh mất cơ hội giải tỏa nỗi sợ nhịn ăn/chính xác và bỏ lỡ vị trí FAQ Rich Snippets trên Google SERP. |
+
+### 3. Cấu trúc Thư mục Bằng chứng Hình ảnh (`audit_evidence`)
+
+Toàn bộ ảnh chụp màn hình độ phân giải cao được lưu trữ tại thư mục [d:\Marketing_Tuan3\audit_evidence](file:///d:/Marketing_Tuan3/audit_evidence):
+
+```text
+d:\Marketing_Tuan3\audit_evidence\
+├── edoctor\                      # Bằng chứng Landing Page hiện trạng eDoctor
+│   ├── 00_fullpage.png           # Toàn cảnh trang eDoctor
+│   ├── 01_hero_headline.png      # Hero banner và 4 icon lợi ích (lỗi lặp từ)
+│   ├── 02_content_section1.png   # Chi tiết lợi ích & thông tin Medlatec/Medic
+│   ├── 03_content_section2.png   # Danh sách gói liên quan (chưa bóc tách)
+│   ├── 04_content_section3.png   # Giá gói và khối số liệu thống kê
+│   ├── 05_content_section4.png   # Form đăng ký lấy mẫu truyền thống
+│   └── 06_content_section5.png   # Chân trang (không có FAQ)
+├── medlatec\                     # Bằng chứng Benchmark Đối thủ số 1 Medlatec
+│   ├── 00_fullpage.png           # Toàn cảnh trang Medlatec
+│   ├── 01_hero_headline.png      # Banner chuẩn CAP/ISO & Phí 10k & 30 phút
+│   ├── 02_content_section1.png   # 4 trụ cột cam kết dịch vụ
+│   ├── 03_content_section2.png   # Video và hình ảnh thực tế phòng Lab
+│   ├── 04_content_section3.png   # Bảng danh mục bóc tách từng chỉ số y khoa
+│   ├── 05_content_section4.png   # Quy trình 4 bước lấy mẫu
+│   └── 06_content_section5.png   # Cam kết Bác sĩ tư vấn & Form đặt hẹn nhanh
+├── longchau\                     # Bằng chứng Benchmark Quy trình & An toàn Long Châu
+│   ├── 00_fullpage.png           # Toàn cảnh bài viết dịch vụ Long Châu
+│   ├── 01_hero_headline.png      # Tiêu đề SEO và Hotline tư vấn 1800 6928
+│   ├── 02_quy_trinh_an_toan.png  # Hình ảnh thực tế lấy máu vô trùng & Giải thích
+│   └── 03_luu_y_xet_nghiem.png   # 5 bước quy trình & Hướng dẫn nhịn ăn chuẩn y khoa
+└── vinmec\                       # Bằng chứng Benchmark Minh bạch xét nghiệm Vinmec
+    ├── 00_fullpage.png           # Toàn cảnh trang Vinmec
+    ├── 01_hero_headline.png      # Tiêu đề và giao diện tham vấn Bác sĩ
+    ├── 02_content_section1.png   # Nội dung khám sức khỏe định kỳ
+    ├── 03_danh_muc_xet_nghiem.png# Bóc tách danh mục xét nghiệm chuyên khoa
+    └── 04_chi_tiet_chuyen_sau.png# Chi tiết các chỉ số xét nghiệm chuyên sâu
+```
 
 ---
 
