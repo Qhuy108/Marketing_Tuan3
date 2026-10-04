@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eDoctor - Xét Nghiệm Máu Tại Nhà Chuẩn Y Khoa</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00875A;
+            --primary-dark: #006644;
+            --primary-light: #E3FCEF;
+            --secondary: #0065FF;
+            --accent: #FFAB00;
+            --danger: #FF5630;
+            --text-main: #172B4D;
+            --text-muted: #6B778C;
+            --bg-light: #F4F5F7;
+            --bg-white: #FFFFFF;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #FAFBFC;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-banner {
+            background: linear-gradient(90deg, #00875A, #00A3BF);
+            color: white;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .top-banner span {
+            background: rgba(255,255,255,0.25);
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-right: 8px;
+            font-weight: 700;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            padding: 14px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .logo-badge {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 4px 14px rgba(0, 135, 90, 0.3);
+            transition: all 0.2s;
+        }
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section (Action Key Component 1) */
+        .hero {
+            padding: 60px 0 40px;
+            background: radial-gradient(circle at top right, rgba(0, 135, 90, 0.08), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(0, 101, 255, 0.05), transparent 50%);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #E3FCEF;
+            color: #006644;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .hero h1 {
+            font-size: 38px;
+            line-height: 1.25;
+            font-weight: 800;
+            color: #091E42;
+            margin-bottom: 16px;
+        }
+        .hero h1 span {
+            color: var(--primary);
+            background: linear-gradient(120deg, var(--primary), #00A3BF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-desc {
+            font-size: 17px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* Trust Badges Bar */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #EBECF0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #172B4D;
+        }
+        .trust-item svg {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Quick Booking Card */
+        .booking-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 32px;
+            box-shadow: 0 16px 40px rgba(9, 30, 66, 0.1);
+            border: 2px solid #E3FCEF;
+            position: relative;
+        }
+        .booking-header {
+            margin-bottom: 20px;
+        }
+        .booking-header h3 {
+            font-size: 20px;
+            color: #091E42;
+            font-weight: 800;
+        }
+        .booking-header p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #344563;
+            margin-bottom: 6px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #DFE1E6;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.15);
+        }
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), #00A3BF);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 135, 90, 0.35);
+            transition: all 0.2s;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 135, 90, 0.45);
+        }
+        .booking-guarantee {
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Section 2: Pricing & Package Matrix (Gap 1 Solution) */
+        .section {
+            padding: 70px 0;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: 32px;
+            color: #091E42;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: white;
+            border: 1.5px solid #DFE1E6;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 135, 90, 0.2);
+        }
+
+        /* Pricing Cards Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 28px;
+            border: 1px solid #EBECF0;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-4px);
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 16px 36px rgba(0, 135, 90, 0.15);
+        }
+        .badge-popular {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background: linear-gradient(135deg, #FFAB00, #FF8B00);
+            color: #172B4D;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .card-category {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .card-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #091E42;
+            margin-bottom: 12px;
+        }
+        .price-box {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #EBECF0;
+        }
+        .current-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        .original-price {
+            font-size: 15px;
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+        .package-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            display: flex;
+            gap: 12px;
+        }
+        .meta-tag {
+            background: var(--bg-light);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .indicators-list {
+            list-style: none;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+        .indicators-list li {
+            font-size: 14px;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #344563;
+        }
+        .indicators-list li svg {
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .btn-card {
+            width: 100%;
+            background: var(--bg-light);
+            color: #091E42;
+            border: 1px solid #DFE1E6;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .pricing-card.featured .btn-card {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .btn-card:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        /* Section 3: Safety & Process (Gap 2 Solution) */
+        .process-section {
+            background: white;
+            padding: 70px 0;
+            border-top: 1px solid #EBECF0;
+            border-bottom: 1px solid #EBECF0;
+        }
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+            margin-top: 40px;
+        }
+        .step-card {
+            background: #FAFBFC;
+            padding: 24px;
+            border-radius: 14px;
+            border: 1px solid #EBECF0;
+            position: relative;
+        }
+        .step-num {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+        .step-time {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--secondary);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .step-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: #091E42;
+            margin-bottom: 8px;
+        }
+        .step-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Doctor Free Consultation Banner (Gap 3 Solution) */
+        .doctor-banner {
+            background: linear-gradient(135deg, #091E42, #0052CC);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            color: white;
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 30px;
+        }
+        .doctor-banner h3 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .doctor-banner p {
+            font-size: 15px;
+            color: #B3D4FF;
+            margin-bottom: 20px;
+        }
+        .badge-list {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .badge-pill {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Section 4: FAQ (SERP PAA Solution) */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #EBECF0;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 18px 24px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #091E42;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 0 24px 18px;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #091E42;
+            color: #97A0AF;
+            padding: 40px 0 20px;
+            font-size: 14px;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid, .pricing-grid, .timeline-grid, .doctor-banner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement -->
+    <div class="top-banner">
+        <span>ƯU ĐÃI THÁNG</span> Miễn phí 100% phí đi lại lấy mẫu tại Hà Nội & TP.HCM + Tặng lượt Bác sĩ tư vấn 1-1
+    </div>
+
+    <!-- Header Navbar -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                eDoctor <span class="logo-badge">Home Care 24/7</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#packages">Gói Xét Nghiệm</a></li>
+                <li><a href="#process">Quy Trình An Toàn</a></li>
+                <li><a href="#lab">Chứng Nhận ISO</a></li>
+                <li><a href="#faq">Hỏi Đáp FAQ</a></li>
+            </ul>
+            <a href="#booking" class="nav-cta">Đặt Lấy Mẫu Ngay</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Action Component 1) -->
+    <section class="hero" id="booking">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left Content -->
+                <div>
+                    <div class="hero-tag">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Dịch Vụ Lấy Máu Tận Nhà Số 1 Công Nghệ
+                    </div>
+                    <h1>Xét Nghiệm Máu Tại Nhà <span>Chuẩn Y Khoa</span></h1>
+                    <p class="hero-desc">
+                        Điều dưỡng có mặt sau <strong>30 phút</strong>. Kết quả trả qua App bảo mật chỉ sau <strong>2-4 giờ</strong>. Phân tích tại Phòng Lab trung tâm đạt chuẩn <strong>ISO 15189</strong>.
+                    </p>
+
+                    <!-- Trust Badges -->
+                    <div class="trust-grid">
+                        <div class="trust-item">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                            Phòng Lab Quốc tế ISO 15189
+                        </div>
+                        <div class="trust-item">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                            100% Kim chân không vô trùng 1 lần
+                        </div>
+                        <div class="trust-item">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            Miễn phí Bác sĩ tư vấn 1-1 qua App
+                        </div>
+                        <div class="trust-item">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            Lấy mẫu 24/7 cả Thứ 7 & CN
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Quick Booking Card (Solves Friction Gap 3) -->
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <h3>Đặt Lấy Mẫu Trong 10 Giây</h3>
+                        <p>Không cần tải app trước • Điều dưỡng gọi xác nhận ngay</p>
+                    </div>
+                    <form onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Điều dưỡng eDoctor sẽ gọi xác nhận trong 5 phút.');">
+                        <div class="form-group">
+                            <label class="form-label">Chọn Gói Xét Nghiệm</label>
+                            <select class="form-control">
+                                <option>Gói Khám Tổng Quát Cơ Bản (12 chỉ số) - 490.000đ</option>
+                                <option selected>Gói Tầm Soát Toàn Diện (24 chỉ số) - 990.000đ</option>
+                                <option>Gói Sức Khỏe Người Cao Tuổi - 1.250.000đ</option>
+                                <option>Gói Mẹ Bầu & Nhi Khoa - 750.000đ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Số Điện Thoại</label>
+                            <input type="tel" class="form-control" placeholder="Nhập số điện thoại của bạn..." required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Địa Chỉ Lấy Mẫu (Hà Nội / TP.HCM)</label>
+                            <input type="text" class="form-control" placeholder="Số nhà, tên đường, quận/huyện..." required>
+                        </div>
+                        <button type="submit" class="btn-submit">XÁC NHẬN ĐẶT LỊCH LẤY MẪU</button>
+                        <div class="booking-guarantee">
+                            <svg width="14" height="14" fill="#00875A" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Cam kết bảo mật thông tin y tế theo chuẩn HIPAA
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING & MATRIX SECTION (Solves Gap 1 - Minh bạch giá & chỉ số) -->
+    <section class="section" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Bảng Giá Minh Bạch 100%</div>
+                <h2 class="section-title">Danh Mục Gói Xét Nghiệm Tại Nhà</h2>
+                <p class="section-desc">Không phát sinh phụ phí. Mọi chỉ số xét nghiệm đều được phân tích tự động trên hệ thống Cobas (Roche - Thụy Sĩ).</p>
+            </div>
+
+            <!-- Tab Filters -->
+            <div class="filter-tabs">
+                <button class="tab-btn active">Tất Cả Gói</button>
+                <button class="tab-btn">Tổng Quát & Định Kỳ</button>
+                <button class="tab-btn">Bệnh Mãn Tính (Tiểu Đường/Gan)</button>
+                <button class="tab-btn">Mẹ Bầu & Trẻ Em</button>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="pricing-grid">
+                <!-- Package 1 -->
+                <div class="pricing-card">
+                    <div class="card-category">Định kỳ 6 tháng</div>
+                    <h3 class="card-name">Tổng Quát Cơ Bản</h3>
+                    <div class="price-box">
+                        <span class="current-price">490.000 đ</span>
+                        <span class="original-price">650.000 đ</span>
+                    </div>
+                    <div class="package-meta">
+                        <span class="meta-tag">12 Chỉ số</span>
+                        <span class="meta-tag">Trả kết quả: 2-3h</span>
+                    </div>
+                    <ul class="indicators-list">
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Đường huyết đói (Glucose)</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Men gan (AST, ALT)</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Chức năng thận (Ure, Creatinine)</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Mỡ máu (Cholesterol, Triglyceride)</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Tổng phân tích tế bào máu 18 chỉ số</li>
+                    </ul>
+                    <button class="btn-card" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">Chọn Gói Này</button>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="badge-popular">ĐƯỢC ĐẶT NHIỀU NHẤT</div>
+                    <div class="card-category">Chăm sóc toàn diện</div>
+                    <h3 class="card-name">Tầm Soát Toàn Diện</h3>
+                    <div class="price-box">
+                        <span class="current-price">990.000 đ</span>
+                        <span class="original-price">1.350.000 đ</span>
+                    </div>
+                    <div class="package-meta">
+                        <span class="meta-tag">24 Chỉ số</span>
+                        <span class="meta-tag">Trả kết quả: 3-4h</span>
+                    </div>
+                    <ul class="indicators-list">
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Bao gồm toàn bộ 12 chỉ số Cơ bản</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Tầm soát Gout (Acid Uric)</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Viêm gan B, C (HBsAg, Anti-HCV)</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Chức năng tuyến giáp (TSH)</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> <strong>Bác sĩ Trưởng khoa tư vấn 1-1</strong></li>
+                    </ul>
+                    <button class="btn-card" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">Đặt Lấy Mẫu Ngay</button>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="pricing-card">
+                    <div class="card-category">Chuyên biệt</div>
+                    <h3 class="card-name">Sức Khỏe Người Cao Tuổi</h3>
+                    <div class="price-box">
+                        <span class="current-price">1.250.000 đ</span>
+                        <span class="original-price">1.600.000 đ</span>
+                    </div>
+                    <div class="package-meta">
+                        <span class="meta-tag">28 Chỉ số</span>
+                        <span class="meta-tag">Trả kết quả: 3-4h</span>
+                    </div>
+                    <ul class="indicators-list">
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Đường huyết trung bình 3 tháng (HbA1c)</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Bộ mỡ máu 4 thành phần chuyên sâu</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Canxi ion hóa & Loãng xương</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Điện giải đồ (Na, K, Cl)</li>
+                        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Theo dõi hồ sơ bệnh án số trọn đời</li>
+                    </ul>
+                    <button class="btn-card" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">Chọn Gói Này</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS & LAB SECTION (Solves Gap 2 - Niềm tin an toàn y khoa) -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Quy Trình 4 Bước Chuẩn Y Khoa</div>
+                <h2 class="section-title">An Toàn Tuyệt Đối - Nhanh Chóng Tiện Lợi</h2>
+                <p class="section-desc">Mọi bước lấy mẫu đều được bảo quản trong bình vận chuyển lạnh chuyên dụng 2-8°C theo tiêu chuẩn Bộ Y Tế.</p>
+            </div>
+
+            <div class="timeline-grid">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <div class="step-time">00:00</div>
+                    <div class="step-title">Đặt Hẹn Lấy Mẫu</div>
+                    <p class="step-desc">Điền thông tin trên Web/App. Nhân viên y tế liên hệ xác nhận khung giờ trong 5 phút.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <div class="step-time">+30 Phút</div>
+                    <div class="step-title">Điều Dưỡng Tới Nhà</div>
+                    <p class="step-desc">Sát khuẩn, lấy mẫu bằng kim bướm siêu êm và đóng gói mẫu vào ống chân không vô trùng.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <div class="step-time">+2-4 Giờ</div>
+                    <div class="step-title">Phân Tích & Trả Kết Quả</div>
+                    <p class="step-desc">Mẫu phân tích tại Lab ISO 15189. File kết quả trả tự động qua App eDoctor có chữ ký số bác sĩ.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">4</div>
+                    <div class="step-time">Hậu Mãi</div>
+                    <div class="step-title">Bác Sĩ Tư Vấn 1-1</div>
+                    <p class="step-desc">Bác sĩ chuyên khoa gọi điện giải thích cặn kẽ ý nghĩa chỉ số và hướng dẫn phác đồ điều trị.</p>
+                </div>
+            </div>
+
+            <!-- Doctor Call Feature Banner (Solves Gap 3) -->
+            <div class="doctor-banner" id="lab">
+                <div>
+                    <h3>Đặc Quyền: Bác Sĩ Chuyên Khoa Đọc Kết Quả 1-1</h3>
+                    <p>Không còn lo lắng đọc chỉ số bất thường mà không hiểu. Đội ngũ hơn 500+ Bác sĩ liên kết từ BV Chợ Rẫy, ĐH Y Dược, Bạch Mai sẽ gọi điện tư vấn trực tiếp cho bạn.</p>
+                    <div class="badge-list">
+                        <span class="badge-pill">✓ Tư vấn hoàn toàn miễn phí</span>
+                        <span class="badge-pill">✓ Kê đơn điện tử chuẩn Bộ Y Tế</span>
+                        <span class="badge-pill">✓ Theo dõi tiến triển trên App</span>
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <a href="#booking" class="nav-cta" style="padding: 14px 28px; font-size: 16px; background: white; color: #091E42;">Đặt Lịch Nhận Ưu Đãi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION (SERP PAA Match) -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Giải Đáp Thắc Mắc</div>
+                <h2 class="section-title">Câu Hỏi Thường Gặp (FAQ)</h2>
+                <p class="section-desc">Những băn khoăn phổ biến nhất của khách hàng khi đăng ký xét nghiệm tại nhà.</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        1. Xét nghiệm tại nhà có chính xác bằng đi bệnh viện lớn không?
+                        <span>▾</span>
+                    </div>
+                    <div class="faq-answer">
+                        Hoàn toàn tương đương. 100% mẫu máu của eDoctor được vận chuyển trong dây chuyền bảo quản lạnh tiêu chuẩn và phân tích trực tiếp tại các Trung tâm xét nghiệm đạt chuẩn <strong>ISO 15189 / CAP</strong> với hệ thống máy tự động hoàn toàn của Roche (Thụy Sĩ) và Abbott (Mỹ).
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        2. Tôi có cần phải nhịn ăn sáng trước khi điều dưỡng đến lấy máu?
+                        <span>▾</span>
+                    </div>
+                    <div class="faq-answer">
+                        Đối với các xét nghiệm đường huyết (Glucose, HbA1c), mỡ máu và chức năng gan thận, bạn cần nhịn ăn từ 8–10 tiếng (có thể uống nước lọc). Các xét nghiệm nhóm máu, dị ứng hoặc viêm gan có thể lấy máu bất kỳ lúc nào mà không cần nhịn ăn.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        3. Sau bao lâu tôi sẽ nhận được kết quả và xem ở đâu?
+                        <span>▾</span>
+                    </div>
+                    <div class="faq-answer">
+                        Kết quả sẽ có sau 2 đến 4 giờ (tùy gói xét nghiệm). eDoctor sẽ gửi tin nhắn SMS thông báo kèm đường link xem hồ sơ kết quả có chữ ký số của Bác sĩ xét nghiệm trực tiếp trên ứng dụng eDoctor.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                <div>
+                    <h3 style="color: white; margin-bottom: 8px;">eDoctor - Nền Tảng Chăm Sóc Sức Khỏe Tại Nhà</h3>
+                    <p>Giấy phép hoạt động khám chữa bệnh số: 0686/SYT-GPHĐ cấp bởi Sở Y Tế.</p>
+                </div>
+                <div>
+                    <p><strong>Hotline 24/7:</strong> 1900 6115 | <strong>Email:</strong> hotro@edoctor.io</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 eDoctor. Mockup cải tiến Landing Page - Bài tập Tuần 3 EC204 (Nhóm Dr.Strange).
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
